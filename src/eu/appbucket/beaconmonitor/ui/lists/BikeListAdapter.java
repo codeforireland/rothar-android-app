@@ -1,6 +1,5 @@
 package eu.appbucket.beaconmonitor.ui.lists;
 
-import eu.appbucket.beaconmonitor.R;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import eu.appbucket.beaconmonitor.R;
 
 public class BikeListAdapter extends ArrayAdapter<String> {
 

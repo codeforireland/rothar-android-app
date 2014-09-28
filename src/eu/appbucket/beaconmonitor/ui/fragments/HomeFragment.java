@@ -1,8 +1,5 @@
 package eu.appbucket.beaconmonitor.ui.fragments;
 
-import eu.appbucket.beaconmonitor.R;
-import eu.appbucket.beaconmonitor.core.scheduler.ServiceScheduler;
-import eu.appbucket.beaconmonitor.ui.lists.BikeListAdapter;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +10,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+import eu.appbucket.beaconmonitor.R;
+import eu.appbucket.beaconmonitor.core.scheduler.ServiceScheduler;
+import eu.appbucket.beaconmonitor.ui.lists.BikeListAdapter;
 
 /**
  * A placeholder fragment containing a simple view.

@@ -1,5 +1,6 @@
 package eu.appbucket.rothar.core.networking;
 
+import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment;
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -10,7 +11,7 @@ public class RegisterNewUserManager {
 	
 	private Context applicationContext;
 	private Activity activity;
-	private static final String SERVER = "http://192.168.1.8:8080/Rothar/v2";
+	private static final String SERVER = "http://api.dev.rothar.appbucket.eu/v2";
 
 	public RegisterNewUserManager(Context applicationContext, Activity activity) {
 		this.applicationContext = applicationContext;
@@ -31,10 +32,9 @@ public class RegisterNewUserManager {
 		if(isNetworkAvailable()) {
 			new RegisterNewUserTask(applicationContext, activity).execute(SERVER + "/users");	
 		} else {
-			Toast.makeText(
-					applicationContext, 
-					"Network is not available.", 
-					Toast.LENGTH_LONG).show();
+			NetworkProblemRetryDialogFragment networkProblemRetryDialog = 
+					new NetworkProblemRetryDialogFragment("Retry to access network ?");
+			networkProblemRetryDialog.show(activity.getFragmentManager(), "networkProblemRetryDialog");
 		}
 	}
 }
