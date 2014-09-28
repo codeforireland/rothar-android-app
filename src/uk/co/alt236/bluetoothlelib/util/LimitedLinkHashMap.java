@@ -1,7 +1,7 @@
 package uk.co.alt236.bluetoothlelib.util;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
+
 
 public class LimitedLinkHashMap<K, V> extends LinkedHashMap<K, V>{
 	private static final long serialVersionUID = -5375660288461724925L;
@@ -13,8 +13,8 @@ public class LimitedLinkHashMap<K, V> extends LinkedHashMap<K, V>{
 		mMaxSize = maxSize;
 	}
 
-    @Override
+    /*@Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
        return this.size() > mMaxSize;
-    }
+    }*/
 }
