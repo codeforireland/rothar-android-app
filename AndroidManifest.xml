@@ -10,19 +10,19 @@
     
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
     
-	<uses-permission android:name="android.permission.BLUETOOTH"/>
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-	<uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
+
         <activity
             android:name="eu.appbucket.beaconmonitor.ui.MainActivity"
             android:label="@string/app_name" >
@@ -31,20 +31,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <receiver android:name="eu.appbucket.beaconmonitor.core.service.ScannerService" />
-        
+        <!-- 
         <receiver android:name="eu.appbucket.beaconmonitor.ui.NotificationReceiver" >
             <intent-filter>
                 <action android:name="eu.appbucket.beaconmonitor_broadcast.device.found.id" />
             </intent-filter>
         </receiver>
-        
+
         <receiver android:name="eu.appbucket.beaconmonitor.core.service.CommunicationService" >
             <intent-filter>
                 <action android:name="eu.appbucket.beaconmonitor_broadcast.device.found.id" />
             </intent-filter>
-        </receiver>
-        
+        </receiver> -->
+
     </application>
 </manifest>
