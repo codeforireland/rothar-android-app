@@ -17,6 +17,11 @@ public class BikeViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_bike_info, container, false);
 
+        setupView(rootView);
+        return rootView;
+    }
+
+    private void setupView(View rootView) {
         Bundle args = getArguments();
         String title = args.getString("title");
         String desc = args.getString("desc");
@@ -27,10 +32,11 @@ public class BikeViewFragment extends Fragment {
         EditText textTitle = (EditText) rootView.findViewById(R.id.bike_info_text_name_value);
         EditText textDesc = (EditText) rootView.findViewById(R.id.bike_info_text_description_value);
         ImageView imageBike = (ImageView) rootView.findViewById(R.id.bike_info_image);
-        
+
         textTitle.setText(title);
         textDesc.setText(desc);
         imageBike.setImageResource(imageRes);
-        return rootView;
+        
+        //TODO: Pull tag data from DB
     }
 }

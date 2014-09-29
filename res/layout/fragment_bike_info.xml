@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/bike_info_image"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -21,67 +21,49 @@
         android:id="@+id/bike_info_text_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@+id/bike_info_text_tag_value"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/bike_info_image"
         android:layout_marginStart="21dp"
         android:layout_marginTop="49dp"
+        android:labelFor="@+id/bike_info_text_tag_value"
         android:text="@string/bike_info_tag" />
 
     <TextView
         android:id="@+id/bike_info_text_stolen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@+id/bike_info_text_stolen_value"
         android:layout_alignStart="@+id/bike_info_text_tag"
         android:layout_centerVertical="true"
+        android:labelFor="@+id/bike_info_text_stolen_value"
         android:text="@string/bike_info_stolen" />
 
     <TextView
         android:id="@+id/bike_info_text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@+id/bike_info_text_name_value"
         android:layout_alignStart="@+id/bike_info_text_stolen"
         android:layout_below="@+id/bike_info_text_stolen"
         android:layout_marginTop="26dp"
+        android:labelFor="@+id/bike_info_text_name_value"
         android:text="@string/bike_info_name" />
 
     <TextView
         android:id="@+id/bike_info_text_description"
-        android:labelFor="@+id/bike_info_text_description_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/bike_info_text_name"
         android:layout_below="@+id/bike_info_text_name"
         android:layout_marginTop="34dp"
+        android:labelFor="@+id/bike_info_text_description_value"
         android:text="@string/bike_info_description" />
 
     <EditText
         android:id="@+id/bike_info_text_description_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
+        android:layout_alignEnd="@+id/bike_info_text_name_value"
         android:layout_below="@+id/bike_info_text_description"
-        android:layout_marginEnd="58dp"
-        android:ems="10"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/bike_info_text_stolen_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bike_info_text_stolen"
-        android:layout_alignStart="@+id/bike_info_image"
-        android:ems="10"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/bike_info_text_tag_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bike_info_text_tag"
-        android:layout_alignStart="@+id/bike_info_text_stolen_value"
         android:ems="10"
         android:inputType="text" />
 
@@ -90,7 +72,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bike_info_text_description"
-        android:layout_alignEnd="@+id/bike_info_text_stolen_value"
+        android:layout_alignEnd="@+id/bike_info_text_tag_value"
+        android:layout_alignStart="@+id/bike_info_text_tag_value"
         android:ems="10"
         android:inputType="text" />
+
+    <ToggleButton
+        android:id="@+id/bike_info_text_stolen_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bike_info_text_name"
+        android:layout_alignEnd="@+id/bike_info_text_name_value"
+        android:text="ToggleButton" />
+
+    <EditText
+        android:id="@+id/bike_info_text_tag_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bike_info_text_tag"
+        android:layout_alignEnd="@+id/bike_info_image"
+        android:layout_toEndOf="@+id/bike_info_text_tag"
+        android:ems="10"
+        android:inputType="text" />
+
 </RelativeLayout>
