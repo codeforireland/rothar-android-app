@@ -1,7 +1,10 @@
 package eu.appbucket.beaconmonitor.ui.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +21,13 @@ import eu.appbucket.beaconmonitor.ui.lists.BikeListAdapter;
  * A placeholder fragment containing a simple view.
  */
 public class HomeFragment extends Fragment {
-    
+
+    private static final String LOG_TAG = "HomeFragment";
     private ServiceScheduler serviceScheduler;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container,
-                false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         serviceScheduler = new ServiceScheduler(this.getActivity());
 
         Button scanBtn = (Button) rootView.findViewById(R.id.btnScan);
@@ -38,16 +40,17 @@ public class HomeFragment extends Fragment {
                 }
             }
         );
-
-        setupBikesList(rootView);
-        return rootView;
-    }
-
-    private void setupBikesList(View rootView) {
+        
         //Test data
         String[] titles = new String[] {"My bike", "My mothers bike", "My race bike"};
         String[] desc = new String[] {"My everyday bike", "The bike she owns", "The expensive bike"};
         int[] images = new int[] {R.drawable.bike, R.drawable.bike, R.drawable.bike};
+
+        setupBikesList(rootView, titles, desc, images);
+        return rootView;
+    }
+
+    private void setupBikesList(final View rootView, final String[] titles, final String[] desc, final int[] images) {
         // our adapter instance
         BikeListAdapter adapter = new BikeListAdapter(rootView.getContext(), R.layout.bike_list_row, titles, desc, images);
 
@@ -58,7 +61,16 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "Click item: " + position, Toast.LENGTH_SHORT).show();
+                BikeViewFragment bikeInfoFragment = new BikeViewFragment();
+                Bundle args = new Bundle();
+                args.putString("title", titles[position]);
+                args.putString("desc", desc[position]);
+                args.putInt("image", images[position]);
+                bikeInfoFragment.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.container, bikeInfoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();   
             }
         });
     }

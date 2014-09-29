@@ -21,6 +21,7 @@
         android:id="@+id/bike_info_text_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@+id/bike_info_text_tag_value"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/bike_info_image"
         android:layout_marginStart="21dp"
@@ -31,6 +32,7 @@
         android:id="@+id/bike_info_text_stolen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@+id/bike_info_text_stolen_value"
         android:layout_alignStart="@+id/bike_info_text_tag"
         android:layout_centerVertical="true"
         android:text="@string/bike_info_stolen" />
@@ -39,6 +41,7 @@
         android:id="@+id/bike_info_text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@+id/bike_info_text_name_value"
         android:layout_alignStart="@+id/bike_info_text_stolen"
         android:layout_below="@+id/bike_info_text_stolen"
         android:layout_marginTop="26dp"
@@ -59,9 +62,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/bike_info_text_tag"
+        android:layout_below="@+id/bike_info_text_description"
         android:layout_marginEnd="58dp"
         android:ems="10"
         android:inputType="text" />
 
+    <EditText
+        android:id="@+id/bike_info_text_stolen_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bike_info_text_stolen"
+        android:layout_alignStart="@+id/bike_info_image"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/bike_info_text_tag_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bike_info_text_tag"
+        android:layout_alignStart="@+id/bike_info_text_stolen_value"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/bike_info_text_name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bike_info_text_description"
+        android:layout_alignEnd="@+id/bike_info_text_stolen_value"
+        android:ems="10"
+        android:inputType="text" />
 </RelativeLayout>
