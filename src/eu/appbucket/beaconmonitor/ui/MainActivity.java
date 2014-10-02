@@ -1,11 +1,13 @@
 package eu.appbucket.beaconmonitor.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import eu.appbucket.beaconmonitor.BicycleAddActivity;
 import eu.appbucket.beaconmonitor.R;
 import eu.appbucket.beaconmonitor.ui.fragments.HomeFragment;
 
@@ -40,6 +42,7 @@ public class MainActivity extends Activity {
         switch(item.getItemId()) {
             case R.id.action_add:
                 Toast.makeText(this, "Add button pressed", Toast.LENGTH_SHORT).show();
+                runBicycleAddAction();
                 return true;
             case R.id.action_settings:
                 Toast.makeText(this, "Settings pressed", Toast.LENGTH_SHORT).show();
@@ -49,5 +52,10 @@ public class MainActivity extends Activity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    private void runBicycleAddAction() {
+    	Intent intent = new Intent(this, BicycleAddActivity.class);
+    	startActivity(intent);
     }
 }

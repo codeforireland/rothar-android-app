@@ -7,11 +7,12 @@
     <string name="action_settings">Settings</string>
     <string name="accessibility_main_bike_preview">Bike preview image</string>
     <string name="accessibility_info_bike_preview">Bike preview image</string>
-
     <string name="bike_info_title">NAME OF BIKE</string>
     <string name="bike_info_tag">Tag Number:</string>
     <string name="bike_info_stolen">Stolen</string>
     <string name="bike_info_name">Name</string>
     <string name="bike_info_description">Description</string>
+    <string name="title_activity_bicycle_add">BicycleAddActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
