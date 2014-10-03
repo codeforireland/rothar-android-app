@@ -14,5 +14,6 @@
     <string name="bike_info_description">Description</string>
     <string name="title_activity_bicycle_add">BicycleAddActivity</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>        
 </resources>

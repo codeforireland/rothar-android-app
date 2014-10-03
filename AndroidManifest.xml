@@ -25,17 +25,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+        
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".core.service.ScannerService" />
+        
+        <activity
+            android:name=".ui.BicycleAddActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ui.MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+        </activity>
+        
+		<receiver android:name=".core.service.ScannerService" />
         <!--
         <receiver android:name="eu.appbucket.beaconmonitor.ui.NotificationReceiver" >
             <intent-filter>
@@ -49,10 +59,6 @@
             </intent-filter>
         </receiver>
         -->
-        <activity
-            android:name=".BicycleAddActivity"
-            android:label="@string/title_activity_bicycle_add" >
-        </activity>
     </application>
 
 </manifest>
