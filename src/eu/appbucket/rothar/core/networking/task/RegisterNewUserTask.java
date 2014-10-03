@@ -1,20 +1,11 @@
-package eu.appbucket.rothar.core.networking;
+package eu.appbucket.rothar.core.networking.task;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.Toast;
 import eu.appbucket.rothar.core.settings.SettingsManager;
 import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment;
@@ -53,8 +44,7 @@ public class RegisterNewUserTask extends AsyncTask<String, Void, UserData> {
 	private UserData registerNewUser(String userRegistrationUrl) {
 		UserData newUser = new UserData();
 		try {
-			InputStream inputStream = getFromUrl(userRegistrationUrl);
-			JSONObject userDataInJson = getUserDataFromInputStream(inputStream);
+			JSONObject userDataInJson = new TaskCommons().getJsonFromUrl(userRegistrationUrl);
 			newUser.setUserId(userDataInJson.getInt("userId"));
 			SettingsManager settingsManager = new SettingsManager(applicationContext);
 			settingsManager.setUserId(newUser.getUserId().toString());
@@ -63,29 +53,7 @@ public class RegisterNewUserTask extends AsyncTask<String, Void, UserData> {
 		}
 		return newUser;
 	}
-	
-	private JSONObject getUserDataFromInputStream(InputStream inputStream) throws IOException, JSONException {
-		BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8")); 
-	    StringBuilder responseStrBuilder = new StringBuilder();
 
-	    String inputStr;
-	    while ((inputStr = streamReader.readLine()) != null) {
-	        responseStrBuilder.append(inputStr);
-	    }
-	    return new JSONObject(responseStrBuilder.toString());
-	}
-
-	private InputStream getFromUrl(String urlString) throws IOException {
-	    URL url = new URL(urlString);
-	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-	    conn.setReadTimeout(10000);
-	    conn.setConnectTimeout(15000);
-	    conn.setRequestMethod("POST");
-	    conn.setDoInput(true);
-	    conn.connect();
-	    return conn.getInputStream();
-	}
-	
 	@Override
 	protected void onPostExecute(UserData newUser) {
 		if (dialog.isShowing()) {

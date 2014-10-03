@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import eu.appbucket.beaconmonitor.R;
 
 public class BicycleAddActivity extends Activity {
@@ -25,23 +26,14 @@ public class BicycleAddActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-		if (id == R.id.action_cancel) {
-			callMain();
-			return true;
-		} else if (id == R.id.action_save) {
+		if (id == R.id.action_save) {
 			saveNewBicycle();
 			return true;
-		}
-		
+		}		
 		return super.onOptionsItemSelected(item);
-	}
-	
-    private void callMain() {
-    	Intent intent = new Intent(this, MainActivity.class);
-    	startActivity(intent);
-    }
+	}	
     
     private void saveNewBicycle() {
-    	
+    	Toast.makeText(this, "Save pressed", Toast.LENGTH_SHORT).show();
     }
 }
