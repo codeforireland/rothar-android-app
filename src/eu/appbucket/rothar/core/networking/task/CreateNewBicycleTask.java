@@ -9,8 +9,11 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
+import eu.appbucket.beaconmonitor.ui.BicycleAddActivity;
+import eu.appbucket.beaconmonitor.ui.MainActivity;
 import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment;
 import eu.appbucket.rothar.web.domain.asset.AssetData;
 
@@ -68,15 +71,22 @@ public class CreateNewBicycleTask extends AsyncTask<String, Void, AssetData> {
 		if (dialog.isShowing()) {
             dialog.dismiss();
         }
-		if(exception == null) {
+		if(exception == null) {		    			
 			Toast.makeText(
 					applicationContext, 
 					"New bicycle registered: " + newAsset.getAssetId(), 
 					Toast.LENGTH_LONG).show();
+			 callBicycleList();
 		} else {
 			NetworkProblemRetryDialogFragment networkProblemRetryDialog = 
 					new NetworkProblemRetryDialogFragment("Retry to Rregister new bicycle ?");
 			networkProblemRetryDialog.show(activity.getFragmentManager(), "networkProblemRetryDialog");
 		}
 	}
+	
+	private void callBicycleList() {
+    	Intent intent = new Intent(applicationContext, MainActivity.class);
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	applicationContext.startActivity(intent);
+    }
 }

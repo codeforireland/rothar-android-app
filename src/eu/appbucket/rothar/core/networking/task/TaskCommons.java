@@ -33,12 +33,11 @@ public class TaskCommons {
 		URL url = new URL(urlString);
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	    conn.setReadTimeout(10000);
-	    conn.setConnectTimeout(15000);
+	    conn.setConnectTimeout(15000);	    
 	    conn.setRequestMethod("POST");
 	    conn.setDoInput(true);
-	    conn.connect();
 	    conn.setRequestProperty("Accept", "application/json");
-	    conn.setRequestProperty("Content-Type", "application/json");		
+	    conn.setRequestProperty("Content-Type", "application/json");
 		if(payload != null) {
 			JSONObject jsonPayload = new JSONObject();
 			for(String key: payload.keySet()) {
@@ -47,7 +46,8 @@ public class TaskCommons {
 			BufferedWriter out =  new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
 			out.write(jsonPayload.toString());
 			out.close();
-		}
+		}	    
+	    conn.connect();
 	    return conn.getInputStream();
 	}
 }
