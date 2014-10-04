@@ -8,7 +8,7 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import eu.appbucket.beaconmonitor.R;
-import eu.appbucket.rothar.core.networking.RegisterNewUserManager;
+import eu.appbucket.rothar.core.networking.NetworkingManager;
 import eu.appbucket.rothar.core.settings.SettingsManager;
 import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment.NetworkProblemRetryDialogListener;
 import eu.appbucket.rothar.web.domain.asset.AssetData;
@@ -39,7 +39,7 @@ public class MainListActivity extends ListActivity
 	}
 	
 	private void registerUser() {
-		new RegisterNewUserManager(getApplicationContext(), this)
+		new NetworkingManager(getApplicationContext(), this)
 			.registerUser();
 	}
 

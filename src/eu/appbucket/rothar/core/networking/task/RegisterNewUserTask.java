@@ -44,7 +44,7 @@ public class RegisterNewUserTask extends AsyncTask<String, Void, UserData> {
 	private UserData registerNewUser(String userRegistrationUrl) {
 		UserData newUser = new UserData();
 		try {
-			JSONObject userDataInJson = new TaskCommons().getJsonFromUrl(userRegistrationUrl);
+			JSONObject userDataInJson = new TaskCommons().postToUrl(userRegistrationUrl);
 			newUser.setUserId(userDataInJson.getInt("userId"));
 			SettingsManager settingsManager = new SettingsManager(applicationContext);
 			settingsManager.setUserId(newUser.getUserId().toString());

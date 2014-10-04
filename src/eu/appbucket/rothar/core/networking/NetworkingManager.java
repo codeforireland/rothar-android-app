@@ -4,15 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import eu.appbucket.rothar.core.networking.task.CreateNewBicycleTask;
 import eu.appbucket.rothar.core.networking.task.RegisterNewUserTask;
 import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment;
+import eu.appbucket.rothar.web.domain.asset.AssetData;
 
-public class RegisterNewUserManager {
+public class NetworkingManager {
 	
 	private Context applicationContext;
 	private Activity activity;
 
-	public RegisterNewUserManager(Context applicationContext, Activity activity) {
+	public NetworkingManager(Context applicationContext, Activity activity) {
 		this.applicationContext = applicationContext;
 		this.activity = activity;
 	}
@@ -30,6 +32,17 @@ public class RegisterNewUserManager {
 	public void registerUser() {
 		if(isNetworkAvailable()) {
 			new RegisterNewUserTask(applicationContext, activity).execute(NetworkingConstants.API_HOST + "/users");	
+		} else {
+			NetworkProblemRetryDialogFragment networkProblemRetryDialog = 
+					new NetworkProblemRetryDialogFragment("Retry to access network ?");
+			networkProblemRetryDialog.show(activity.getFragmentManager(), "networkProblemRetryDialog");
+		}
+	}
+	
+	public void registerAsset(AssetData assetToBeSaved) {
+		if(isNetworkAvailable()) {
+			new CreateNewBicycleTask(applicationContext, activity, assetToBeSaved)
+				.execute(NetworkingConstants.API_HOST + "/users/" + assetToBeSaved.getUserId() + "/assets");	
 		} else {
 			NetworkProblemRetryDialogFragment networkProblemRetryDialog = 
 					new NetworkProblemRetryDialogFragment("Retry to access network ?");

@@ -1,15 +1,18 @@
 
 package eu.appbucket.rothar.core.networking.task;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import eu.appbucket.rothar.core.settings.SettingsManager;
+import android.widget.Toast;
+import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment;
 import eu.appbucket.rothar.web.domain.asset.AssetData;
-import eu.appbucket.rothar.web.domain.user.UserData;
 
 public class CreateNewBicycleTask extends AsyncTask<String, Void, AssetData> {
 	
@@ -17,11 +20,13 @@ public class CreateNewBicycleTask extends AsyncTask<String, Void, AssetData> {
 	private Exception exception = null;
 	private ProgressDialog dialog;
 	private Activity activity;
+	private AssetData assetToBeSaved;
 	
-	public CreateNewBicycleTask(Context applicationContext, Activity activity) {
+	public CreateNewBicycleTask(Context applicationContext, Activity activity, AssetData assetToBeSaved) {
 		this.applicationContext = applicationContext;
         this.dialog = new ProgressDialog(activity);
         this.activity = activity;
+        this.assetToBeSaved = assetToBeSaved;
 	}
 	
 	@Override
@@ -42,17 +47,36 @@ public class CreateNewBicycleTask extends AsyncTask<String, Void, AssetData> {
 	}
 	
 	private AssetData createNewAsset(String assetRegistrationUrl) {
+		assetToBeSaved.getUserId();		
+		Map<String, String> payload = new HashMap<String, String>();
+		payload.put("uuid", assetToBeSaved.getUuid());
+		payload.put("minor", "1");
+		payload.put("major", "1");
+		payload.put("description", assetToBeSaved.getDescription());
 		AssetData newAsset = new AssetData();
-		/*try {
-			JSONObject assetDataInJson = new TaskCommons().getJsonFromUrl(assetRegistrationUrl);
+		try {
+			JSONObject assetDataInJson = new TaskCommons().postToUrl(assetRegistrationUrl, payload);
 			newAsset.setAssetId(assetDataInJson.getInt("assetId"));
-			SettingsManager settingsManager = new SettingsManager(applicationContext);
-			settingsManager.setUserId(newUser.getUserId().toString());
 		} catch (Exception e) {
 			exception = e;
-		}*/
+		}
 		return newAsset;
 	}
 
-
+	@Override
+	protected void onPostExecute(AssetData newAsset) {
+		if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
+		if(exception == null) {
+			Toast.makeText(
+					applicationContext, 
+					"New bicycle registered: " + newAsset.getAssetId(), 
+					Toast.LENGTH_LONG).show();
+		} else {
+			NetworkProblemRetryDialogFragment networkProblemRetryDialog = 
+					new NetworkProblemRetryDialogFragment("Retry to Rregister new bicycle ?");
+			networkProblemRetryDialog.show(activity.getFragmentManager(), "networkProblemRetryDialog");
+		}
+	}
 }
