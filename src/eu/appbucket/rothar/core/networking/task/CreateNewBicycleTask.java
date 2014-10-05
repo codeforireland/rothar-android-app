@@ -79,7 +79,7 @@ public class CreateNewBicycleTask extends AsyncTask<String, Void, AssetData> {
 			 callBicycleList();
 		} else {
 			NetworkProblemRetryDialogFragment networkProblemRetryDialog = 
-					new NetworkProblemRetryDialogFragment("Retry to Rregister new bicycle ?");
+					new NetworkProblemRetryDialogFragment("Retry to Register new bicycle ?");
 			networkProblemRetryDialog.show(activity.getFragmentManager(), "networkProblemRetryDialog");
 		}
 	}

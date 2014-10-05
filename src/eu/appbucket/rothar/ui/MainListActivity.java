@@ -75,4 +75,9 @@ public class MainListActivity extends ListActivity
 	public void onDialogPositiveClick(DialogFragment dialog) {
 		registerUser();
 	}
+	
+	@Override
+	public void onDialogNegativeClick(DialogFragment dialog) {
+		// TODO Auto-generated method stub	
+	}
 }

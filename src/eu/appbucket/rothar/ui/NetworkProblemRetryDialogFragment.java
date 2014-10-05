@@ -41,11 +41,17 @@ public class NetworkProblemRetryDialogFragment extends DialogFragment {
                    public void onClick(DialogInterface dialog, int id) {
                        mListener.onDialogPositiveClick(NetworkProblemRetryDialogFragment.this);
                    }
+               })
+               .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       mListener.onDialogNegativeClick(NetworkProblemRetryDialogFragment.this);
+                   }
                });
         return builder.create();
     }
     
     public interface NetworkProblemRetryDialogListener {
         public void onDialogPositiveClick(DialogFragment dialog);
+        public void onDialogNegativeClick(DialogFragment dialog);
     }
 }

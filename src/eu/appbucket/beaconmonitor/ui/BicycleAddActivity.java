@@ -2,13 +2,13 @@ package eu.appbucket.beaconmonitor.ui;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import eu.appbucket.beaconmonitor.R;
 import eu.appbucket.rothar.core.networking.NetworkingManager;
-import eu.appbucket.rothar.core.settings.SettingsManager;
 import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment.NetworkProblemRetryDialogListener;
 import eu.appbucket.rothar.web.domain.asset.AssetData;
 
@@ -56,4 +56,15 @@ public class BicycleAddActivity extends Activity
 	public void onDialogPositiveClick(DialogFragment dialog) {
 		saveNewBicycle();
 	}
+	
+	@Override
+	public void onDialogNegativeClick(DialogFragment dialog) {
+		callBicycleList();		
+	}
+	
+	private void callBicycleList() {
+    	Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	getApplicationContext().startActivity(intent);
+    }
 }

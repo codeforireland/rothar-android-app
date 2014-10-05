@@ -40,8 +40,8 @@
         android:inputType="textMultiLine" 
         android:ems="255"
 	    android:maxLength="255"
-	    android:lines="4"
-	    android:minLines="4">        
+	    android:lines="10"
+	    android:minLines="1">        
     </EditText>	
 	
 </RelativeLayout>
