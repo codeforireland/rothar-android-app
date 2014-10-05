@@ -42,6 +42,6 @@
 	    android:maxLength="255"
 	    android:lines="10"
 	    android:minLines="1">        
-    </EditText>	
-	
+    </EditText>
+    
 </RelativeLayout>

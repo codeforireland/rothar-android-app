@@ -12,6 +12,8 @@
     <string name="bike_info_stolen">Stolen</string>
     <string name="bike_info_name">Name</string>
     <string name="bike_info_description">Description</string>
+    <string name="config_scheduler_days">Allow your phone to search for stolen bicycles on following days:</string>
+    <string name="config_scheduler_slots">&#8230; in following time slots:</string>
     <string name="title_activity_bicycle_add">BicycleAddActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_cancel">Cancel</string>

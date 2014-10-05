@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/config_scheduler_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:labelFor="@+id/config_scheduler_days_value"
+        android:text="@string/config_scheduler_days" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_monday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/config_scheduler_days"
+        android:layout_below="@+id/config_scheduler_days"
+        
+        android:textOff="MON"
+        android:textOn="MON" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_tuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/config_scheduler_days"
+        android:layout_toRightOf="@+id/togglebutton_day_monday"
+        
+        android:textOff="TUE"
+        android:textOn="TUE" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_wednesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/config_scheduler_days"
+        android:layout_toRightOf="@+id/togglebutton_day_tuesday"
+        
+        android:textOff="WED"
+        android:textOn="WED" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_thursday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/config_scheduler_days"
+        android:layout_toRightOf="@+id/togglebutton_day_wednesday"
+        
+        android:textOff="THU"
+        android:textOn="THU" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_friday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/togglebutton_day_monday"
+        android:layout_below="@+id/togglebutton_day_monday"
+        
+        android:textOff="FRI"
+        android:textOn="FRI" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_saturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/togglebutton_day_monday"
+        android:layout_toRightOf="@+id/togglebutton_day_monday"
+        
+        android:textOff="SAT"
+        android:textOn="SAT" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_day_sunday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/togglebutton_day_tuesday"
+        android:layout_toRightOf="@+id/togglebutton_day_tuesday"
+        
+        android:textOff="SUN"
+        android:textOn="SUN" />
+	
+    <TextView
+        android:id="@+id/config_scheduler_slots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/togglebutton_day_friday"
+        android:layout_below="@+id/togglebutton_day_friday"
+        android:labelFor="@+id/togglebutton_time_7_to_9"
+        android:text="@string/config_scheduler_slots" />
+    
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_7_to_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/config_scheduler_slots"
+        android:layout_below="@+id/config_scheduler_slots"
+        
+        android:textOff="7 to 9"
+        android:textOn="7 to 9" />
+        
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_9_to_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/config_scheduler_slots"
+        android:layout_toRightOf="@+id/togglebutton_slot_7_to_9"
+        
+        android:textOff="9 to 11"
+        android:textOn="9 to 11" />
+    
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_11_to_13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/config_scheduler_slots"
+        android:layout_toRightOf="@+id/togglebutton_slot_9_to_11"
+        
+        android:textOff="11 to 13"
+        android:textOn="11 to 13" />
+    
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_13_to_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/config_scheduler_slots"
+        android:layout_toRightOf="@+id/togglebutton_slot_11_to_13"
+        
+        android:textOff="13 to 15"
+        android:textOn="13 to 15" />
+    
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_15_to_17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/togglebutton_slot_7_to_9"
+        android:layout_below="@+id/togglebutton_slot_7_to_9"
+        
+        android:textOff="15 to 17"
+        android:textOn="15 to 17" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_17_to_19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/togglebutton_slot_9_to_11"
+        android:layout_toRightOf="@+id/togglebutton_slot_15_to_17"
+        android:textOff="17 to 19"
+        android:textOn="17 to 19" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_slot_19_to_21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/togglebutton_slot_11_to_13"
+        android:layout_toRightOf="@+id/togglebutton_slot_17_to_19"
+        android:textOff="19 to 21"
+        android:textOn="19 to 21" />
+         	
+</RelativeLayout>

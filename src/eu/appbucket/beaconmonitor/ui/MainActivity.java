@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
                 callBicycleAdd();
                 return true;
             case R.id.action_settings:
-                Toast.makeText(this, "Settings pressed", Toast.LENGTH_SHORT).show();
+                callConfiguraiton();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -47,6 +47,11 @@ public class MainActivity extends Activity {
     
     private void callBicycleAdd() {
     	Intent intent = new Intent(this, BicycleAddActivity.class);
+    	startActivity(intent);
+    }
+    
+    private void callConfiguraiton() {
+    	Intent intent = new Intent(this, ConfigurationActivity.class);
     	startActivity(intent);
     }
 }
