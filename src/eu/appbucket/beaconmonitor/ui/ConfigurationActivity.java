@@ -1,16 +1,10 @@
 package eu.appbucket.beaconmonitor.ui;
 
 import android.app.Activity;
-import android.app.DialogFragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import eu.appbucket.beaconmonitor.R;
-import eu.appbucket.rothar.core.networking.NetworkingManager;
-import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment.NetworkProblemRetryDialogListener;
-import eu.appbucket.rothar.web.domain.asset.AssetData;
 
 public class ConfigurationActivity extends Activity {
 

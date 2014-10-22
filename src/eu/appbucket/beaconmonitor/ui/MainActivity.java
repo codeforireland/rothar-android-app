@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 import eu.appbucket.beaconmonitor.R;
 import eu.appbucket.beaconmonitor.ui.fragments.HomeFragment;
 

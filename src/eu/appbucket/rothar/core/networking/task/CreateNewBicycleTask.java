@@ -12,7 +12,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
-import eu.appbucket.beaconmonitor.ui.BicycleAddActivity;
 import eu.appbucket.beaconmonitor.ui.MainActivity;
 import eu.appbucket.rothar.ui.NetworkProblemRetryDialogFragment;
 import eu.appbucket.rothar.web.domain.asset.AssetData;

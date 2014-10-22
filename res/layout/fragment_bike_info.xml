@@ -28,35 +28,6 @@
         android:labelFor="@+id/bike_info_text_tag_value"
         android:text="@string/bike_info_tag" />
 
-    <TextView
-        android:id="@+id/bike_info_text_stolen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/bike_info_text_tag"
-        android:layout_centerVertical="true"
-        android:labelFor="@+id/bike_info_text_stolen_value"
-        android:text="@string/bike_info_stolen" />
-
-    <TextView
-        android:id="@+id/bike_info_text_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/bike_info_text_stolen"
-        android:layout_below="@+id/bike_info_text_stolen"
-        android:layout_marginTop="26dp"
-        android:labelFor="@+id/bike_info_text_name_value"
-        android:text="@string/bike_info_name" />
-
-    <TextView
-        android:id="@+id/bike_info_text_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/bike_info_text_name"
-        android:layout_below="@+id/bike_info_text_name"
-        android:layout_marginTop="34dp"
-        android:labelFor="@+id/bike_info_text_description_value"
-        android:text="@string/bike_info_description" />
-
     <EditText
         android:id="@+id/bike_info_text_description_value"
         android:layout_width="match_parent"
@@ -82,8 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bike_info_text_name"
-        android:layout_alignEnd="@+id/bike_info_text_name_value"
-        android:text="ToggleButton" />
+        android:layout_alignEnd="@+id/bike_info_text_tag_value"/>
 
     <EditText
         android:id="@+id/bike_info_text_tag_value"
@@ -94,5 +64,36 @@
         android:layout_toEndOf="@+id/bike_info_text_tag"
         android:ems="10"
         android:inputType="text" />
+
+    <TextView
+        android:id="@+id/bike_info_text_stolen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/bike_info_text_tag"
+        android:layout_below="@+id/bike_info_text_tag"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="22dp"
+        android:labelFor="@+id/bike_info_text_stolen_value"
+        android:text="@string/bike_info_stolen" />
+
+    <TextView
+        android:id="@+id/bike_info_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/bike_info_text_stolen"
+        android:layout_below="@+id/bike_info_text_stolen"
+        android:layout_marginTop="22dp"
+        android:labelFor="@+id/bike_info_text_name_value"
+        android:text="@string/bike_info_name" />
+
+    <TextView
+        android:id="@+id/bike_info_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/bike_info_text_name"
+        android:layout_below="@+id/bike_info_text_name"
+        android:layout_marginTop="22dp"
+        android:labelFor="@+id/bike_info_text_description_value"
+        android:text="@string/bike_info_description" />
 
 </RelativeLayout>
